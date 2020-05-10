@@ -1,12 +1,9 @@
 ---
-title: "Course 2 project"
-output: github_document
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
 This project project is to use R Markdown to allow any user to reproduce the current analysis workflow. The dataset *Activity monitoring data* will be used and the variables are the following:
 
 - **steps**: Number of steps taking in a 5-minute interval
@@ -48,7 +45,7 @@ To generate a histogram of the *total number of steps* per day and save it in th
 with(steps_count, hist(total_steps, breaks = 30, col = "springgreen3"))
 rug(steps_count$total_steps)
 ```
-
+![](plot1.png)<!-- -->
 The *averaged number of steps* and *median number of steps* per day are given by
 ```{r}
 steps_count_summary <- summary(steps_count$total_steps)
@@ -67,7 +64,7 @@ The plot of the time serie of the the averaged number of steps per 5-min interva
 with(steps_mean_interval, plot(x = interval, y = mean_steps, type = "l", col = "springgreen3", xlab = "Intervals", ylab = "Averaged steps"))
 title("Averaged of steps per interval")
 ```
-
+![](plot2.png)<!-- -->
 The maximum averaged number of time can be obtained by
 ```{r}
 max_mean_steps <- steps_mean_interval[which(steps_mean_interval$mean_steps == max(steps_mean_interval$mean_steps)), ]
@@ -101,6 +98,7 @@ rug(steps_count$total_steps)
 steps_count_summary <- summary(steps_count$total_steps)
 steps_count_summary
 ```
+![](plot3.png)<!-- -->
 The updated average number of steps per day is `r as.integer(steps_count_summary[4])` and the updated median value is `r as.integer(steps_count_summary[3])`.  
 
 The updated mean and median are higher compared to the first analysis. By imputing the missing values, the data frame may get closer to the true values.  
@@ -128,6 +126,6 @@ A plot of the mean for each interval in the weekdays and the weekend is generate
 g <- ggplot(steps_mean_interval_new, aes(interval, mean_steps))
 g + geom_line(aes(color = classifier)) + facet_grid(classifier~.) + labs(x = "Interval", y = "Average steps", title = "Average steps for each 5-min interval")
 ```
-
+![](plot4.png)<!-- -->
 
 The activity of the subject seems to be higher during the weekdays than the weekends. 

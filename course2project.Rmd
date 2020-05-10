@@ -1,6 +1,8 @@
 ---
-title: "Course 2 project"
-output: html_document
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
@@ -131,17 +133,5 @@ g + geom_line(aes(color = classifier)) + facet_grid(classifier~.) + labs(x = "In
 
 
 The activity of the subject seems to be higher during the weekdays than the weekends. 
-
-
-
-
-
-
-
-
-
-
-
-
 
 
