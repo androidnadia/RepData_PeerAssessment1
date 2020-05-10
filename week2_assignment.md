@@ -1,6 +1,6 @@
 ---
 title: "Course 2 project"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
